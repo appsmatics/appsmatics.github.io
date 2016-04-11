@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Web Audio API</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    </head>
+    <body>
+        <h1>Assignment 1</h1>
+        <input type="range" min"0" max="1.0" step="0.1" value="0.5" id="volume"/>
+
+        <script>
+                var myAudioContext = new AudioContext();
+                var myOscillator = myAudioContext.createOscillator();
+                var vol = myAudioContext.createGain();
+                var volControl = document.getElementById("volume");
+
+                myOscillator.connect(vol);
+                myOscillator.frequency.value = 1000;
+
+
+                vol.gain.value = volControl.value;
+                vol.connect(myAudioContext.destination);
+
+                volControl.addEventListener("input", function() {
+                        vol.gain.value = volControl.value;
+                });
+
+                myOscillator.start(myAudioContext.currentTime);
+
+        </script>
+
+    </body>
+</html>

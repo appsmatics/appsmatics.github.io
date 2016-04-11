@@ -3,15 +3,16 @@
     <head>
         <title>Web Audio API</title>
     </head>
+
     <body>
         <h1>!! Welcome to the Web Audio !!</h1>
-        
+
         <script>
             var myAudioContext = new AudioContext();
             var myOscillator = myAudioContext.createOscillator();
-			myOscillator.connect(myAudioContext.destination);
-			myOscillator.start(myAudioContext.currentTime);
+			      myOscillator.connect(myAudioContext.destination);
+			      myOscillator.start(myAudioContext.currentTime);
         </script>
-        
+
     </body>
 </html>
